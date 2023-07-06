@@ -1,6 +1,6 @@
 <?php
-    include "admin/controller/c_berita.php";
-    $bt = new Berita; 
+    include "admin/controller/c_prestasi.php";
+    $pts = new Prestasi; 
 ?>
 
 <!doctype html>
@@ -80,96 +80,110 @@
 
     <!--====== HEADER PART ENDS ======-->
 
-    <!-- <section class="mt-20 text-black">
-        <div class="flex flex-col text-center w-full mb-4">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Berita Terbaru<br> SMP N 4 Juwana</h1>
-        </div>
-        <?php
-            $data = $bt->TampilSemuaWeb();
-            $no = 1;
-                foreach($data as $d){ 
-        ?>
-        <section class="py-6 lg:flex lg:justify-center">            
-            <div class=" lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
-                <div class="lg:w-1/2">
-                    <div class="h-64 bg-cover lg:rounded-lg lg:h-full"
-                        style="background-image:url('admin/img/berita/<?php print $d['gambar'] ?>')">
+    
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-col">
+            <div class="lg:w-1/6 mx-auto">
+                <div class="flex flex-col text-center w-full mb-4">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Unduhan File SMPN 4 Juwana</h1>
+                </div>
+                <div class="overflow-x-auto">
+                      <!-- Projects table -->
+                     <div class="container mx-auto">
+              </div>
+               <div class="mb-4 mt-10 flex items-center">
+    <input
+      id="searchInput"
+      type="text"
+      class="border border-gray-300 rounded-md px-4 py-2 mr-2 focus:outline-none"
+      placeholder="Search"
+    />
+    <button onclick="searchTable()" class="bg-gray-200 text-black px-4 py-2 rounded-md">Search</button>
+  </div>
+  
+  <p id="noDataMessage" class="text-red-500 mt-4 hidden">Tidak ada file yang tersedia.</p>
+</div>
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-left text-sm font-light">
+          <thead class="border-b font-medium dark:border-neutral-500">
+            <tr>
+              <th scope="col" class="px-6 py-4">#</th>
+              <th scope="col" class="px-6 py-4">First</th>
+              <th scope="col" class="px-6 py-4">Last</th>
+              <th scope="col" class="px-6 py-4">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
+              <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
+              <td class="whitespace-nowrap px-6 py-4">Mark</td>
+              <td class="whitespace-nowrap px-6 py-4">Otto</td>
+              <td class="whitespace-nowrap px-6 py-4">@mdo</td>
+            </tr>
+            <tr
+              class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
+              <td class="whitespace-nowrap px-6 py-4 font-medium">2</td>
+              <td class="whitespace-nowrap px-6 py-4">Jacob</td>
+              <td class="whitespace-nowrap px-6 py-4">Thornton</td>
+              <td class="whitespace-nowrap px-6 py-4">@fat</td>
+            </tr>
+            <tr
+              class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
+              <td class="whitespace-nowrap px-6 py-4 font-medium">3</td>
+              <td class="whitespace-nowrap px-6 py-4">Larry</td>
+              <td class="whitespace-nowrap px-6 py-4">Wild</td>
+              <td class="whitespace-nowrap px-6 py-4">@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function searchTable() {
+    var input, filter, table, tr, td, i, txtValue, noDataMessage;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
+    noDataMessage = document.getElementById("noDataMessage");
+    var foundData = false;
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0]; // Assuming the search is performed on the first column (Name)
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          foundData = true;
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+    if (foundData) {
+      noDataMessage.classList.add("hidden");
+    } else {
+      noDataMessage.classList.remove("hidden");
+    }
+  }
+</script>
+
+                      <div class="bg-white py-4 px-6 rounded">
+                      </div>
                     </div>
-                </div>
-
-                <div class="max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
-                    <h4 class="text-xl font-bold md:text-xl"><?php print substr($d['judul'],0,50) ?></span>
-                    </h4>
-                    <p class="mt-4 text-gray-600 dark:text-gray-400">
-                        <?php print substr($d['text_berita'],0,200) ?> ...
-                    </p>
-                    <a href="detail-berita.php?id=<?php print $d['id']; ?>" 
-                        class="inline-flex mt-10 text-black bg-white border-2 border-black py-2 px-8 focus:outline-none hover:bg-black hover:text-white text-sm">Selengkapnya</a>
-                </div>
-            </div>
-        </section>
-        <?php 
-            $no++;
-        } ?>     
-
-    </section> -->
-    <section id="berita" class="text-gray-600 berita-area body-font">
-        <div class="container px-5 py-24 mx-auto">
-            <div class="justify-center row">
-                <div class="w-full mx-4 lg:w-1/2">
-                    <div class="pb-10 text-center section-title">
-                        <h4 class="title" style="margin-top:80px">Berita Terbaru</h4>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="flex flex-wrap -m-4">
-          <?php
-            $data = $bt->TampilHalamanDepan();
-            $no = 1;
-            foreach ($data as $d) {
-                {
-                            $text_berita = substr($d['text_berita'], 20, 20);
-
-            ?>
-                <div class="p-4 lg:w-1/3">
-                    
-                    <div
-                    
-                    class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="admin/img/berita/<?php print $d['gambar'] ?>" width="300" height="250" alt="blog">
-                        <div class="p-6"> 
-                        <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><?php print $d['date_publish'] ?></h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-2"><?php print substr($d['judul'], 0, 50) ?></h1>
-                        <div class=""><small><?php print $text_berita; ?></small></div>
-                    <div class="flex items-center">
-                                <a href="detail-berita.php?id=<?php print $d['id']; ?>" 
-                        class="inline-flex mt-4 text-black bg-white border-2 border-black py-2 px-8 focus:outline-none hover:bg-black hover:text-white text-sm">Selengkapnya</a>
-                            </div>   
-                    </div>
-                        
-                    </div>   
-                </div>
-                <?php 
-                  $no++;
-                }
-                } ?>
             </div>
         </div>
     </section>
-
-    <footer class="sticky-footer bg-white mt-10 mb-5">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; SMPN 4 JUWANA 2022</span>
-            </div>
-        </div>
-    </footer>
-
-
-
     <!--====== BACK TO TOP PART START ======-->
 
-    <a class="back-to-top" href="#"><i class="lni-chevron-up"></i></a>
+
+    <a class="back-to-top" href="#"><i class="lni-chevron-up"></i>JHJWHFSH</a>
 
     <!--====== BACK TO TOP PART ENDS ======-->
 

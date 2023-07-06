@@ -37,6 +37,37 @@
     <!--====== tailwind css ======-->
     <link rel="stylesheet" href="assets/css/tailwind.css">
 
+<style>
+    .custom-image {
+        width: 250px;
+        /* height: auto; */
+        height: 350px;
+        object-fit: cover;
+        padding-left: auto;
+    }
+    .fade-line {
+  opacity: 0;
+  animation: fadeAnimation 3s ease-in-out forwards;
+}
+
+@keyframes fadeAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+    @media (max-width: 767px) {
+        /* Media query untuk perangkat mobile dengan lebar maksimal 767px */
+        .custom-image {
+            width: auto;
+            /* margin: 10px; */
+            padding-right: 1px; /* Padding untuk mobile */
+            padding-left: 1px; /* Padding untuk mobile */
+        }
+    }
+</style>
 
 </head>
 
@@ -63,7 +94,7 @@
                             </button>
 
                             <!-- justify-center hidden md:flex collapse navbar-collapse sub-menu-bar -->
-                            <div class="absolute left-0 z-30 hidden w-full px-5 py-0 duration-300 bg-white shadow md:opacity-100 md:w-auto collapse navbar-collapse md:block top-100 mt-full md:static md:bg-transparent md:shadow-none"
+                            <div class="absolute left-0 z-30 hidden w-full px-5 py-0 duration-300  shadow md:opacity-100 md:w-auto collapse navbar-collapse md:block top-100 mt-full md:static md:bg-transparent md:shadow-none"
                                 id="navbarOne">
                                 <ul
                                     class="items-center content-start mr-auto lg:justify-center md:justify-end navbar-nav md:flex">
@@ -83,6 +114,9 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#kontak">Kontak</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="unduhan.php">Unduhan</a>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -93,13 +127,13 @@
         </div> <!-- navgition -->
 
         <div id="beranda" class="relative bg-center bg-no-repeat bg-cover z-10 w-full beranda-area header-hero"
-            style="background-image: url(assets/images/sekolah2.jpeg)" >
+            style="background-image: url(assets/images/sekolah2.jpeg);margin-top:100px;height:650px;" >
             <div class="container">
                 <div class="justify-center row">
                     <div class="w-full lg:w-5/6 xl:w-2/3">
                         <div class="pt-48 pb-64 text-center header-content">
-                            <h3 class="mb-5 text-4xl font-semibold leading-tight text-white md:text-5xl">SMP Negeri 4
-                                Juwana</h3>
+                            <h3  id="welcome-text" class="mb-5 text-4xl font-bold leading-8 text-white md:text-5xl" style="line-height:60px;">Selamat Datang di Website Official <br> SMP Negeri 4 Juwana</h3><hr class="mb-5 fade-line">
+                                         <p id="description" class="mb-10 font-normal leading-8 text-white" style="line-height:20px">Kami berkomitmen untuk memberikan pendidikan berkualitas tinggi kepada setiap siswa. Selamat datang dan bersemangatlah untuk mengejar prestasi yang luar biasa</p>
                             <p class="px-5 mb-10 text-2xl text-black"> </p>
                             <!-- <ul class="flex flex-wrap justify-center">
                                 <li><a class="mx-3 main-btn gradient-btn" href="javascript:void(0)">Selengkapnya</a>
@@ -123,7 +157,7 @@
                 <div class="flex flex-col sm:flex-row mt-10">
                     <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
                         <img src="assets/images/0.jpg"
-                            class="w-30 h-30 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+                            class="w-30 h-30 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400" loading="lazy">
                         </img>
                         <div class="flex flex-col items-center text-center justify-center">
                             <h2 class="font-bold title-font mt-4 text-gray-900 text-lg">Sri Nurhayati, S.Pd., M.Pd</h2>
@@ -161,13 +195,13 @@
                         memiliki akreditasi A, berdasarkan sertifikat 220/BAP-SM/X/2016.
                     </div>
                     <!-- <a href="profil.html" -->
-                    <a href="https://www.youtube.com/embed/mY1HgrgCgcY"
+                    <a href="https://www.youtube.com/embed/4pS4JPIYwAA"
                         class="inline-flex mt-10 text-white bg-gray-800 border-2 border-white py-2 px-8 focus:outline-none hover:bg-white hover:text-black text-sm">TAMPILKAN
                         PROFIL SEKOLAH</a>
                 </div>
             </div>
             <div class="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
-                <iframe class="object-cover object-center w-full h-full" src="https://www.youtube.com/embed/mY1HgrgCgcY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="object-cover object-center w-full h-full" src="https://www.youtube.com/embed/4pS4JPIYwAA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
         </div>
     </section>
@@ -181,86 +215,131 @@
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
-            <div class="flex flex-wrap -m-4">
-                <!-- Dimulai dari sini ya mas beritanya -->
+           <div class="flex flex-wrap -m-4">
+    <!-- Dimulai dari sini ya mas beritanya -->
 
-                <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
-                    <div class="w-full relative flex items-center justify-center">
-                        <button aria-label="slide backward" class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
-                            <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                        <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
-                            <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-12 items-center justify-start transition ease-out duration-700">
-                                
-                                <?php
-                                $data = $pt->TampilSemuaWeb();
-                                $no = 1;
-                                    foreach($data as $d){ ?>
-                                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                                    <img src="admin/img/staff/<?php print $d['foto_staff'] ?>" width="200" height="300" alt="kepala-sekolah" class="object-cover object-center" />
-                                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
-                                        <h2 class="lg:text-l leading-4 text-base lg:leading-5 text-white"> <?php print $d['jabatan'] ?></h2>
-                                        <div class="flex h-full items-end pb-6">
-                                            <h3 class="text-s lg:text-s font-semibold leading-5 lg:leading-6 text-white"> <?php print $d['nama'] ?></h3>
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
+        <div class="w-full relative flex items-center justify-center">
+            <button aria-label="slide backward" class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
+                <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+                <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-12 items-center justify-start transition ease-out duration-700">
 
-                                <?php 
-                                $no++;
-                                } ?>
-
-                                <div class="flex flex-shrink-0 relative w-1/3 sm:w-auto">
-                                </div>
-
-
+                    <?php
+                    $data = $pt->TampilSemuaWeb();
+                    $no = 1;
+                    foreach($data as $d){ ?>
+                    <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                        <img  class="custom-image" src="admin/img/staff/<?php print $d['foto_staff'] ?>" width="300" height="500" object-fit="cover" loading="lazy"  alt="kepala-sekolah" />
+                        <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                            <h2 class="lg:text-l leading-4 text-base lg:leading-5 text-white"> <?php print $d['jabatan'] ?></h2>
+                            <div class="flex h-full items-end pb-6">
+                                <h3 class="text-s lg:text-s font-semibold leading-5 lg:leading-6 text-white"> <?php print $d['nama'] ?></h3>
                             </div>
                         </div>
-                        <button aria-label="slide forward" class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" id="next">
-                            <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
                     </div>
-                </div>
+                    <?php 
+                    $no++;
+                    } ?>
 
+                    <div class="flex flex-shrink-0 relative w-1/3 sm:w-auto">
+                    </div>
+
+                </div>
             </div>
+            <button aria-label="slide forward" class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" id="next">
+                <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
             <!-- <a
                 class="inline-flex mx-auto mt-10 text-black bg-white border-2 border-black py-2 px-8 focus:outline-none hover:bg-gray-800 hover:text-white text-sm" href="berita.html">TAMPILKAN
                 SEMUA BERITA</a> -->
         </div>
     </section>
-
-    <section id="berita" class="text-black berita-area body-font">
+    <section id="berita" class="text-gray-600 berita-area body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="justify-center row">
                 <div class="w-full mx-4 lg:w-1/2">
                     <div class="pb-10 text-center section-title">
                         <h4 class="title">Berita Terbaru</h4>
-                    </div> 
+                    </div> <!-- section title -->
                 </div>
-            </div> 
+            </div> <!-- row -->
             <div class="flex flex-wrap -m-4">
-                <?php
-                    $data = $bt->TampilHalamanDepan();
-                    $no = 1;
-                        foreach($data as $d){ 
-                ?>
+          <?php
+            $data = $bt->TampilHalamanDepan();
+            $no = 1;
+            foreach ($data as $d) {
+                if ($no < 4) {
+                            $text_berita = substr($d['text_berita'], 20, 20);
+
+            ?>
+                <div class="p-4 lg:w-1/3">
+                    
+                    <div
+                    
+                    class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="admin/img/berita/<?php print $d['gambar'] ?>" width="300" height="250" loading="lazy" alt="blog">
+                        <div class="p-6"> 
+                        <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><?php print $d['date_publish'] ?></h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><?php print substr($d['judul'], 0, 50) ?></h1>
+                        <div class=""><small><?php print $text_berita; ?></small></div>
+                    <div class="flex items-center ">
+                                <a href="detail-berita.php?id=<?php print $d['id']; ?>" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Selengkapnya
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h14"></path>
+                                        <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>   
+                    </div>
+                        
+                    </div>   
+                </div>
+                <?php 
+                  $no++;
+                }
+                } ?>
+            </div>
+            <button
+                class="flex mx-auto mt-10 text-black bg-white border-2 border-black py-2 px-8 focus:outline-none hover:bg-gray-800 hover:text-white text-sm"><a href="berita.php">TAMPILKAN
+                SEMUA BERITA</a>
+            </button>
+        </div>
+    </section>
+
+    <!-- <section id="berita" class="text-gray-600 prestasi-area body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="justify-center row">
+                <div class="w-full mx-4 lg:w-1/2">
+                    <div class="pb-10 text-center section-title">
+                    <h4 class="title">Berita Terbaru</h4>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap -m-4">
+            <?php
+            $data = $bt->TampilHalamanDepan();
+            $no = 1;
+            foreach ($data as $d) {
+            ?>
                 <div class="p-6 md:w-1/3">
                     <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                        <img class="lg:h-48 md:h-36 w-full object-cover object-center"
-                            src="admin/img/berita/<?php print $d['gambar'] ?>" width="200" height="300" alt="blog">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="admin/img/berita/<?php print $d['gambar'] ?>" width="150" height="250" alt="blog">
                         <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><?php print $d['date_publish'] ?>
-                            </h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><?php print substr($d['judul'],0,50) ?></h1>
-                            <p class="leading-relaxed mb-3"><?php print substr($d['text_berita'],0,100) ?> ...</p>
-                            <div class="flex items-center flex-wrap ">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><?php print $d['date_publish'] ?></h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><?php print substr($d['judul'], 0, 50) ?></h1>
+                            <p class="leading-relaxed mb-3"><?php print substr($d['text_berita'], 0, 100) ?> ...</p>
+                            <div class="flex items-center flex-wrap">
                                 <a href="detail-berita.php?id=<?php print $d['id']; ?>" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Selengkapnya
-                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M5 12h14"></path>
                                         <path d="M12 5l7 7-7 7"></path>
                                     </svg>
@@ -268,16 +347,17 @@
                             </div>
                         </div>
                     </div>
-                </div>  
-                <?php 
-                    $no++;
-                } ?>                
-            </div>         
-        <a href="berita.php" class="inline-flex mx-auto mt-10 text-black bg-white border-2 border-black py-2 px-8 focus:outline-none hover:bg-gray-800 hover:text-white text-sm" href="berita.html">TAMPILKAN
-                SEMUA BERITA</a>
-                  
-        </div>        
-    </section> 
+                </div>
+            <?php
+                $no++;
+            } ?>
+        </div>
+         <button   class="flex mx-auto mt-10 text-black bg-white border-2 border-black py-2 px-8 focus:outline-none hover:bg-gray-800 hover:text-white text-sm"><a href="prestasi.php">TAMPILKAN
+                SEMUA PRESTASI</a>
+            </button>
+        </div>
+</section> -->
+
 
     <section id="prestasi" class="text-gray-600 prestasi-area body-font">
         <div class="container px-5 py-24 mx-auto">
@@ -356,6 +436,71 @@
             </div>
         </div>
     </section>
+        <footer class="sticky-footer bg-white mt-10 mb-5">
+             <div class="container bg-neutral-900 px-6 pt-6">
+    <div class="mb-6 flex justify-center">
+      <a
+        href="#!"
+        type="button"
+        class="mr-3 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+        data-te-ripple-init
+        data-te-ripple-color="light"
+           style="font-size: 20px; width: 40px; height: 40px;">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="mx-auto h-full w-4"
+          fill="currentColor"
+          viewBox="0 0 24 24">
+          <path
+            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+        </svg>
+      </a>
+
+      <a
+        href="#!"
+        type="button"
+        class="mr-3 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+        data-te-ripple-init
+         data-te-ripple-color="light"
+           style="font-size: 20px; width: 40px; height: 40px;">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="mx-auto h-full w-4"
+          fill="currentColor"
+          viewBox="0 0 24 24">
+          <path
+            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+        </svg>
+      </a>
+
+
+      <a
+        href="#!"
+        type="button"
+        class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+        data-te-ripple-init
+        data-te-ripple-color="light"
+           style="font-size: 20px; width: 40px; height: 40px;">
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="mx-auto h-full w-4"
+          fill="currentColor"
+          viewBox="0 0 24 24">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+
+      
+    </div>
+  </div
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; SMPN 4 JUWANA 2022</span>
+            </div>
+        </div>
+    </footer>
 
     <!--====== BACK TO TOP PART START ======-->
 
@@ -386,6 +531,92 @@
 
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
+<script>
+  const slider = document.getElementById('slider');
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+
+  function slideLeft() {
+    const slideWidth = slider.firstElementChild.offsetWidth;
+    slider.style.transform = `translateX(${slideWidth}px)`;
+
+    setTimeout(() => {
+      slider.style.transition = 'transform 0s';
+      slider.insertBefore(slider.lastElementChild, slider.firstElementChild);
+      slider.style.transform = 'translateX(0)';
+      setTimeout(() => {
+        slider.style.transition = '';
+      }, 50);
+    }, 700);
+  }
+
+  function slideRight() {
+    const slideWidth = slider.firstElementChild.offsetWidth;
+    slider.style.transform = `translateX(-${slideWidth}px)`;
+
+    setTimeout(() => {
+      slider.style.transition = 'transform 0s';
+      slider.appendChild(slider.firstElementChild);
+      slider.style.transform = 'translateX(0)';
+      setTimeout(() => {
+        slider.style.transition = '';
+      }, 50);
+    }, 700);
+  }
+
+  prevButton.addEventListener('click', slideLeft);
+  nextButton.addEventListener('click', slideRight);
+
+  // Fungsi untuk geser otomatis setiap beberapa detik
+  function autoSlide() {
+    slideRight();
+  }
+
+  setInterval(autoSlide, 3000); // Ubah angka 3000 menjadi waktu geser yang diinginkan dalam milidetik (misal: 5000 untuk geser setiap 5 detik)
+</script>
+<script>
+const welcomeElement = document.getElementById("welcome-text");
+const descriptionElement = document.getElementById("description");
+
+const welcomeText = welcomeElement.innerHTML;
+const descriptionText = descriptionElement.innerHTML;
+
+welcomeElement.innerHTML = "";
+descriptionElement.innerHTML = "";
+
+let charIndexWelcome = 0;
+let textWelcome = "";
+
+let charIndexDescription = 0;
+let textDescription = "";
+
+function typeEffectWelcome() {
+  if (charIndexWelcome < welcomeText.length) {
+    textWelcome += welcomeText.charAt(charIndexWelcome);
+    welcomeElement.innerHTML = textWelcome;
+    charIndexWelcome++;
+    setTimeout(typeEffectWelcome, 50);
+  } else if (charIndexWelcome === welcomeText.length) {
+    typeEffectDescription();
+  }
+}
+
+function typeEffectDescription() {
+  if (charIndexDescription < descriptionText.length) {
+    textDescription += descriptionText.charAt(charIndexDescription);
+    descriptionElement.innerHTML = textDescription;
+    charIndexDescription++;
+    setTimeout(typeEffectDescription, 30);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", typeEffectWelcome);
+
+</script>
+<script>
+    
+</script>
+
 
 </body>
 

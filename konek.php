@@ -1,10 +1,14 @@
 <?php
-$con = mysqli_connect("localhost","smpc8631_admin","smpn4juwana","smpc8631_smp4");
+$host = "localhost"; // Nama host database
+$user = "root"; // Nama pengguna database
+$password = ""; // Kata sandi pengguna database
+$database = "smp"; // Nama database
 
-if(mysqli_connect_errno($con)){
-	echo "Failed to connect to MySQL : ".mysqli_connect_error();
-	}
-	else{
-		echo "";
-	}
+$con = mysqli_connect($host, $user, $password, $database);
+
+if(mysqli_connect_errno($con)) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+} else {
+    // echo "Connected to MySQL database successfully.";
+}
 ?>

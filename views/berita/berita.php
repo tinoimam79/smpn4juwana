@@ -1,7 +1,6 @@
 <?php
-    include "admin/controller/c_berita.php";
-    $p = new Berita; 
-    $p->TampilSatuDataDetail($_GET['id']);
+    include "./admin/controller/c_berita.php";
+    $bt = new Berita; 
 ?>
 
 <!doctype html>
@@ -81,22 +80,81 @@
 
     <!--====== HEADER PART ENDS ======-->
 
-    <section class="mt-20 text-black mb-20">
-        <div class="flex flex-col text-center w-full mx-20 mb-4">
+    <!-- <section class="mt-20 text-black">
+        <div class="flex flex-col text-center w-full mb-4">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Berita Terbaru<br> SMP N 4 Juwana</h1>
         </div>
-        <section class="container">  
-            <div class="single-post"> 
-                <center>
-                <div class="image-wrapper"><img src="admin/img/berita/<?php print $p->gambar; ?>" width="600" max-height="300" alt="Blog Image"></div>
-                </center>
-                <div class="p-6">
-                <p class="date">Diposting Pada : <?php print $p->date_publish; ?></p><br>
-                <h2 class="mx-20 text-2xl "><a href=""><b class="light-color"><?php print $p->judul; ?></b></a></h2>
-                <?php print $p->text_berita; ?>
+        <?php
+            $data = $bt->TampilSemuaWeb();
+            $no = 1;
+                foreach($data as $d){ 
+        ?>
+        <section class="py-6 lg:flex lg:justify-center">            
+            <div class=" lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
+                <div class="lg:w-1/2">
+                    <div class="h-64 bg-cover lg:rounded-lg lg:h-full"
+                        style="background-image:url('admin/img/berita/<?php print $d['gambar'] ?>')">
+                    </div>
                 </div>
 
-            </div><!-- single-post -->    
+                <div class="max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
+                    <h4 class="text-xl font-bold md:text-xl"><?php print substr($d['judul'],0,50) ?></span>
+                    </h4>
+                    <p class="mt-4 text-gray-600 dark:text-gray-400">
+                        <?php print substr($d['text_berita'],0,200) ?> ...
+                    </p>
+                    <a href="detail-berita.php?id=<?php print $d['id']; ?>" 
+                        class="inline-flex mt-10 text-black bg-white border-2 border-black py-2 px-8 focus:outline-none hover:bg-black hover:text-white text-sm">Selengkapnya</a>
+                </div>
+            </div>
         </section>
+        <?php 
+            $no++;
+        } ?>     
+
+    </section> -->
+    <section id="berita" class="text-gray-600 berita-area body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="justify-center row">
+                <div class="w-full mx-4 lg:w-1/2">
+                    <div class="pb-10 text-center section-title">
+                        <h4 class="title">Berita Terbaru</h4>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="flex flex-wrap -m-4">
+          <?php
+            $data = $bt->TampilHalamanDepan();
+            $no = 1;
+            foreach ($data as $d) {
+                {
+                            $text_berita = substr($d['text_berita'], 20, 20);
+
+            ?>
+                <div class="p-4 lg:w-1/3">
+                    
+                    <div
+                    
+                    class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="admin/img/berita/<?php print $d['gambar'] ?>" width="300" height="250" alt="blog">
+                        <div class="p-6"> 
+                        <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><?php print $d['date_publish'] ?></h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-2"><?php print substr($d['judul'], 0, 50) ?></h1>
+                        <div class=""><small><?php print $text_berita; ?></small></div>
+                    <div class="flex items-center">
+                                <a href="detail-berita.php?id=<?php print $d['id']; ?>" 
+                        class="inline-flex mt-4 text-black bg-white border-2 border-black py-2 px-8 focus:outline-none hover:bg-black hover:text-white text-sm">Selengkapnya</a>
+                            </div>   
+                    </div>
+                        
+                    </div>   
+                </div>
+                <?php 
+                  $no++;
+                }
+                } ?>
+            </div>
+        </div>
     </section>
 
     <footer class="sticky-footer bg-white mt-10 mb-5">

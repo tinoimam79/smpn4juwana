@@ -1265,30 +1265,41 @@ p {
   height: 100%;
   width: 100%;
   --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+  background-color: rgb(73 73 73 / var(--tw-bg-opacity));
 }
 
 .navigation{
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: 20;
+  z-index: 50;
   width: 100%;
-  background-color: transparent;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  background-color: #27ae60;
+  padding-top: 1rem;
+  padding-bottom: 1.1rem;
   transition-duration: 300ms;
+box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 20px 30px;
 }
 
 .sticky{
   position: fixed;
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  /* background-color: rgb(255 255 255 / var(--tw-bg-opacity)); */
+    background-color: #27ae60;
   padding-top: 1rem;
   padding-bottom: 1rem;
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 20px 30px;
+}
+.sticky-footer{
+    padding-top: 1rem;
+  padding-bottom: 1rem;
+  gap:200px;
+  margin-bottom: 0px;
+  color:white;
+      background-color: #2a2a2a;
+
 }
 
 .collapse.show{
@@ -1330,13 +1341,14 @@ p {
   padding-bottom: 0.5rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
+  color: #e5e7eb;
   transition-duration: 300ms;
 }
 
 .navbar-nav .nav-item.active a, .navbar-nav .nav-item a:hover{
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
+  /* color: rgb(37 99 235 / var(--tw-text-opacity)); */
+  color:#aeff2c;
 }
 
 .navbar-nav .nav-item.active a::before, .navbar-nav .nav-item.active a::after, .navbar-nav .nav-item a:hover::before, .navbar-nav .nav-item a:hover::after{
@@ -1351,7 +1363,7 @@ p {
   height: 0.25rem;
   width: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 0 / var(--tw-bg-opacity));
   opacity: 0;
   transition-duration: 300ms;
 }
